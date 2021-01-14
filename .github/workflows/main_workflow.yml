@@ -4,7 +4,17 @@ on:
     branches:
       - master
 jobs:
-  download_code:
+  linter-execution:
+    name: linter-execution
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: CheckoutCode
+        uses: actions/checkout@v2
+      - name: LinterExecution
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: /
+          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
+          VALIDATE_JAVASCRIPT_ES: true
