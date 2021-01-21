@@ -34,3 +34,13 @@ jobs:
       - name: Run jest tests
         run: npm install jest
              npm run test
+  environment_test_execution:
+    name: environment_test_execution
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Javascript Hello Action
+        uses: adeloyedeji/github-actions-hello@v1.0
+        with:
+          who-to-greet: $DESTINATION_PERSON
+        env: 
+          DESTINATION_PERSON: 2DAW
