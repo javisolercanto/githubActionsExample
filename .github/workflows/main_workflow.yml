@@ -37,10 +37,10 @@ jobs:
   environment_test_execution:
     name: environment_test_execution
     runs-on: ubuntu-latest
-    env: 
-      DESTINATION_PERSON: 2DAW
     steps:
       - name: Test Javascript Hello Action
         uses: adeloyedeji/github-actions-hello@v1.0
+        env: 
+          DESTINATION_PERSON: 2DAW
         with:
           who-to-greet: env.DESTINATION_PERSON
