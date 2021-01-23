@@ -17,7 +17,7 @@ jobs:
         uses: actions/upload-artifact@v2 
         with:
           name: artifact
-          path: build/
+          path: .
   deploy:
     name: deploy
     runs-on: ubuntu-latest
@@ -31,6 +31,6 @@ jobs:
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'javisoler.surge.sh'
-          project: 'build/'
+          project: .
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
