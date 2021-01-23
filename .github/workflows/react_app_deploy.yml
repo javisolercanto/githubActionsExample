@@ -27,12 +27,10 @@ jobs:
         uses: actions/download-artifact@v2
         with: 
           name: artifact
-      - name: BuildArtifacts
-        run: npm run build
       - name: DeployArtifacts
         uses: dswistowski/surge-sh-action@v1
         with:
           domain: 'javisoler.surge.sh'
-          project: my-react-app/build
+          project: .
           login: ${{ secrets.surge_login }}
           token: ${{ secrets.surge_token }}
