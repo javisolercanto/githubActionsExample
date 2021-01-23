@@ -17,7 +17,7 @@ jobs:
         uses: actions/upload-artifact@v2 
         with:
           name: artifact
-          path: build/
+          path: .
   deploy:
     name: deploy
     runs-on: ubuntu-latest
@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: DownloadArtifacts
         uses: actions/download-artifact@v2
+        with: 
+          name: artifact
       - name: DeployArtifacts
         uses: dswistowski/surge-sh-action@v1
         with:
