@@ -27,6 +27,8 @@ jobs:
         uses: actions/download-artifact@v2
         with: 
           name: artifact
+      - name: BuildArtifacts
+        uses: npm run build
       - name: DeployArtifacts
         uses: dswistowski/surge-sh-action@v1
         with:
