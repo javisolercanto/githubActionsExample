@@ -5,32 +5,32 @@ on:
       - react_app_deploy
 jobs:
   build:
-    name: build
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: CheckoutCode
+      - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install node and build
+      - name: Build app
         run: npm install
-             npm run build
-      - name: UploadArtifacts
-        uses: actions/upload-artifact@v2 
+          npm run build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: artifact
           path: .
   deploy:
-    name: deploy
+    name: DeployArtifact
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: DownloadArtifacts
+      - name: Download artifacts
         uses: actions/download-artifact@v2
-        with: 
+        with:
           name: artifact
-      - name: DeployArtifacts
+      - name: Deploy artifacts
         uses: dswistowski/surge-sh-action@v1
         with:
-          domain: 'javisoler.surge.sh'
+          domain: "javisoler.surge.sh"
           project: .
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
