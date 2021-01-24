@@ -18,7 +18,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: .
+          path: build
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
