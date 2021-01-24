@@ -5,19 +5,20 @@ on:
       - react_app_deploy
 jobs:
   build:
-    name: Build
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: CheckoutCode
         uses: actions/checkout@v2
-      - name: Build app
-        run: npm install
+      - name: BuildApp
+        run: |
+          npm install
           npm run build
       - name: UploadArtifacts
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: .
+          path: build
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -30,7 +31,7 @@ jobs:
       - name: DeployArtifacts
         uses: dswistowski/surge-sh-action@v1
         with:
-          domain: "javisoler.surge.sh"
-          project: /build
+          domain: javisolercanto.surge.sh
+          project: .
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
