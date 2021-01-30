@@ -19,6 +19,7 @@ const git = github.context.payload;
 
 try {
   bot.sendMessage(chatID, `Workflow ejecutado correctamente tras el último commit. Saludos ${username}
+  
 GitHub Information:
   - Commit name: ${git.head_commit.author.name}
   - Commit message: ${git.head_commit.message}
