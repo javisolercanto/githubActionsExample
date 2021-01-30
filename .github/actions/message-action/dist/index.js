@@ -8,13 +8,13 @@ module.exports =
 const core = __nccwpck_require__(5002);
 const TelegramBot = __nccwpck_require__(7419);
 
-const chatId = core.getInput('chatId');
+const chatID = core.getInput('chatID');
 const username = core.getInput('username');
 
-const bot = new TelegramBot(core.getInput('telegramToken'));
+const bot = new TelegramBot(core.getInput('token'));
 
 try {
-  bot.sendMessage(chatId, `Workflow ejecutado correctamente tras el último commit. Saludos ${username}`);
+  bot.sendMessage(chatID, `Workflow ejecutado correctamente tras el último commit. Saludos ${username}`);
 
 } catch (error) {
   core.setFailed(error.message);
