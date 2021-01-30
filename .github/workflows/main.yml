@@ -1,8 +1,8 @@
 name: main
 on: 
   push:
-    - branches: 
-        - send_telegram_action
+    branches: 
+      - send_telegram_action
 jobs: 
   send-message:
     name: Telegram send message
