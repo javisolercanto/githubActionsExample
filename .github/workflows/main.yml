@@ -13,6 +13,6 @@ jobs:
       - name: Telegram Message
         uses: ./.github/actions/message-action
         with:
-          token: ${{ secrets.telegram_token }}
-          chatID: ${{ secrets.telegram_chatID }}
-          username: ${{ secrets.telegram_username }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          chatID: ${{ secrets.TELEGRAM_CHATID }}
+          username: ${{ secrets.TELEGRAM_USERNAME }}
